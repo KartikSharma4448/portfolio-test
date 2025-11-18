@@ -29,6 +29,9 @@ import AdminSkills from "@/pages/admin-skills";
 import AdminServices from "@/pages/admin-services";
 import AdminSocialLinks from "@/pages/admin-social-links";
 import AdminBlog from "@/pages/admin-blog";
+import AdminAbout from "@/pages/admin-about";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import TermsOfService from "@/pages/terms-of-service";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -65,6 +68,8 @@ function Router() {
       
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/auth" component={AuthPage} />
       <ProtectedRoute path="/admin" component={Admin} />
       <ProtectedRoute path="/admin/projects" component={AdminProjects} />
@@ -73,8 +78,9 @@ function Router() {
       <ProtectedRoute path="/admin/services" component={AdminServices} />
       <ProtectedRoute path="/admin/social-links" component={AdminSocialLinks} />
       <ProtectedRoute path="/admin/blog" component={AdminBlog} />
+      <ProtectedRoute path="/admin/about" component={AdminAbout} />
       
-      {!CurrentPage && location !== "/blog" && !location.startsWith("/blog/") && location !== "/auth" && !location.startsWith("/admin") && <NotFound />}
+      {!CurrentPage && location !== "/blog" && !location.startsWith("/blog/") && location !== "/privacy-policy" && location !== "/terms-of-service" && location !== "/auth" && !location.startsWith("/admin") && <NotFound />}
     </>
   );
 }

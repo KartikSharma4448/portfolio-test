@@ -8,7 +8,8 @@ import {
   Share2,
   MessageSquare,
   BookOpen,
-  LogOut
+  LogOut,
+  User
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -91,6 +92,7 @@ export default function Admin() {
   ];
 
   const quickActions = [
+    { label: "Edit About Page", href: "/admin/about", icon: User },
     { label: "Add Project", href: "/admin/projects", icon: FolderOpen },
     { label: "Add Certificate", href: "/admin/certificates", icon: Award },
     { label: "Add Skill", href: "/admin/skills", icon: Code },

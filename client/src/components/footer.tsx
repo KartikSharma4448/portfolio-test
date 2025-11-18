@@ -43,6 +43,13 @@ export function Footer() {
                 Services
               </Link>
               <Link
+                href="/blog"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors hover-elevate px-2 py-1 rounded-md -ml-2"
+                data-testid="link-footer-blog"
+              >
+                Blog
+              </Link>
+              <Link
                 href="/contact"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors hover-elevate px-2 py-1 rounded-md -ml-2"
                 data-testid="link-footer-contact"
@@ -81,10 +88,28 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t text-center">
-          <p className="text-sm text-muted-foreground">
-            © {currentYear} Kartik Sharma. All rights reserved.
-          </p>
+        <div className="mt-8 pt-8 border-t">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-muted-foreground">
+              © {currentYear} Kartik Sharma. All rights reserved.
+            </p>
+            <div className="flex gap-4">
+              <Link
+                href="/privacy-policy"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors hover-elevate px-2 py-1 rounded-md"
+                data-testid="link-footer-privacy"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms-of-service"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors hover-elevate px-2 py-1 rounded-md"
+                data-testid="link-footer-terms"
+              >
+                Terms of Service
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

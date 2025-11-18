@@ -1,0 +1,100 @@
+2025-11-18T17:15:00.534671017Z   where: undefined,
+2025-11-18T17:15:00.534675546Z   schema: undefined,
+2025-11-18T17:15:00.534680087Z   table: undefined,
+2025-11-18T17:15:00.534684437Z   column: undefined,
+2025-11-18T17:15:00.534688577Z   dataType: undefined,
+2025-11-18T17:15:00.534692847Z   constraint: undefined,
+2025-11-18T17:15:00.534697067Z   file: undefined,
+2025-11-18T17:15:00.534701577Z   line: undefined,
+2025-11-18T17:15:00.534705347Z   routine: undefined,
+2025-11-18T17:15:00.534710427Z   sourceError: TypeError: fetch failed
+2025-11-18T17:15:00.534714367Z       at node:internal/deps/undici/undici:13510:13
+2025-11-18T17:15:00.534718778Z       at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-18T17:15:00.534723648Z       at async execute (file:///opt/render/project/src/node_modules/@neondatabase/serverless/index.mjs:1548:15)
+2025-11-18T17:15:00.534729018Z       at async NeonHttpPreparedQuery.execute (file:///opt/render/project/src/node_modules/drizzle-orm/neon-http/session.js:40:20)
+2025-11-18T17:15:00.534733288Z       at async DbStorage.createContactMessage (file:///opt/render/project/src/dist/index.js:296:20)
+2025-11-18T17:15:00.534737668Z       at async file:///opt/render/project/src/dist/index.js:1015:21 {
+2025-11-18T17:15:00.534741648Z     [cause]: Error: connect ECONNREFUSED 10.215.9.186:443
+2025-11-18T17:15:00.534745908Z         at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1636:16) {
+2025-11-18T17:15:00.534750028Z       errno: -111,
+2025-11-18T17:15:00.534754308Z       code: 'ECONNREFUSED',
+2025-11-18T17:15:00.534758489Z       syscall: 'connect',
+2025-11-18T17:15:00.534762969Z       address: '10.215.9.186',
+2025-11-18T17:15:00.534767409Z       port: 443
+2025-11-18T17:15:00.534771829Z     }
+2025-11-18T17:15:00.534776059Z   }
+2025-11-18T17:15:00.53479276Z }
+2025-11-18T17:15:00.5347958Z 
+2025-11-18T17:15:00.53479876Z Node.js v22.16.0
+2025-11-18T17:15:07.145885729Z ==> Running 'npm run start'
+2025-11-18T17:15:08.141615508Z 
+2025-11-18T17:15:08.141641058Z > rest-express@1.0.0 start
+2025-11-18T17:15:08.141645588Z > NODE_ENV=production node dist/index.js
+2025-11-18T17:15:08.141647919Z 
+2025-11-18T17:15:15.434833998Z 5:15:15 PM [express] serving on port 10000
+2025-11-18T17:19:14.498724298Z ==> Detected service running on port 10000
+2025-11-18T17:19:14.656523387Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
+2025-11-18T17:34:42.553424863Z ==> Deploying...
+2025-11-18T17:35:05.507330893Z ==> Running 'npm run start'
+2025-11-18T17:35:06.594121619Z 
+2025-11-18T17:35:06.594158Z > rest-express@1.0.0 start
+2025-11-18T17:35:06.5941627Z > NODE_ENV=production node dist/index.js
+2025-11-18T17:35:06.59416617Z 
+2025-11-18T17:35:13.898849015Z 5:35:13 PM [express] serving on port 10000
+2025-11-18T17:35:23.577802837Z ==> Your service is live 🎉
+2025-11-18T17:35:23.655831971Z ==> 
+2025-11-18T17:35:23.706402637Z ==> ///////////////////////////////////////////////////////////
+2025-11-18T17:35:25.536318465Z ==> 
+2025-11-18T17:35:25.601316179Z ==> Available at your primary URL https://portfolio-test-9k32.onrender.com
+2025-11-18T17:35:25.679671833Z ==> 
+2025-11-18T17:35:25.730867178Z ==> ///////////////////////////////////////////////////////////
+2025-11-18T17:35:57.60889029Z 5:35:57 PM [express] GET /api/user 401 in 2ms
+2025-11-18T17:36:25.090214538Z file:///opt/render/project/src/node_modules/@neondatabase/serverless/index.mjs:1549
+2025-11-18T17:36:25.090256669Z ...ee})}catch(W){let H=new pe(`Error connecting to database: ${W.message}`);throw H.
+2025-11-18T17:36:25.090263759Z                        ^
+2025-11-18T17:36:25.090268049Z 
+2025-11-18T17:36:25.090272719Z NeonDbError: Error connecting to database: fetch failed
+2025-11-18T17:36:25.090278209Z     at execute (file:///opt/render/project/src/node_modules/@neondatabase/serverless/index.mjs:1549:24)
+2025-11-18T17:36:25.090284559Z     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-18T17:36:25.09028993Z     at async NeonHttpPreparedQuery.execute (file:///opt/render/project/src/node_modules/drizzle-orm/neon-http/session.js:40:20)
+2025-11-18T17:36:25.09029461Z     at async DbStorage.createContactMessage (file:///opt/render/project/src/dist/index.js:296:20)
+2025-11-18T17:36:25.09029976Z     at async file:///opt/render/project/src/dist/index.js:1015:21 {
+2025-11-18T17:36:25.090304Z   severity: undefined,
+2025-11-18T17:36:25.09030838Z   code: undefined,
+2025-11-18T17:36:25.09031229Z   detail: undefined,
+2025-11-18T17:36:25.09031641Z   hint: undefined,
+2025-11-18T17:36:25.09032038Z   position: undefined,
+2025-11-18T17:36:25.09032482Z   internalPosition: undefined,
+2025-11-18T17:36:25.090328871Z   internalQuery: undefined,
+2025-11-18T17:36:25.090332931Z   where: undefined,
+2025-11-18T17:36:25.090337061Z   schema: undefined,
+2025-11-18T17:36:25.090341181Z   table: undefined,
+2025-11-18T17:36:25.090345541Z   column: undefined,
+2025-11-18T17:36:25.090349371Z   dataType: undefined,
+2025-11-18T17:36:25.090353441Z   constraint: undefined,
+2025-11-18T17:36:25.090357491Z   file: undefined,
+2025-11-18T17:36:25.090361711Z   line: undefined,
+2025-11-18T17:36:25.090365651Z   routine: undefined,
+2025-11-18T17:36:25.090372672Z   sourceError: TypeError: fetch failed
+2025-11-18T17:36:25.090376741Z       at node:internal/deps/undici/undici:13510:13
+2025-11-18T17:36:25.090380441Z       at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-18T17:36:25.090384242Z       at async execute (file:///opt/render/project/src/node_modules/@neondatabase/serverless/index.mjs:1548:15)
+2025-11-18T17:36:25.090389212Z       at async NeonHttpPreparedQuery.execute (file:///opt/render/project/src/node_modules/drizzle-orm/neon-http/session.js:40:20)
+2025-11-18T17:36:25.090392732Z       at async DbStorage.createContactMessage (file:///opt/render/project/src/dist/index.js:296:20)
+2025-11-18T17:36:25.090396302Z       at async file:///opt/render/project/src/dist/index.js:1015:21 {
+2025-11-18T17:36:25.090400152Z     [cause]: ConnectTimeoutError: Connect Timeout Error (attempted address: api.oregon-postgres.render.com:443, timeout: 10000ms)
+2025-11-18T17:36:25.090404222Z         at onConnectTimeout (node:internal/deps/undici/undici:2602:28)
+2025-11-18T17:36:25.090408012Z         at Immediate._onImmediate (node:internal/deps/undici/undici:2583:11)
+2025-11-18T17:36:25.090411732Z         at process.processImmediate (node:internal/timers:485:21) {
+2025-11-18T17:36:25.090415212Z       code: 'UND_ERR_CONNECT_TIMEOUT'
+2025-11-18T17:36:25.090418853Z     }
+2025-11-18T17:36:25.090434143Z   }
+2025-11-18T17:36:25.090436923Z }
+2025-11-18T17:36:25.090439143Z 
+2025-11-18T17:36:25.090441963Z Node.js v22.16.0
+2025-11-18T17:36:34.176001692Z ==> Running 'npm run start'
+2025-11-18T17:36:35.276571568Z 
+2025-11-18T17:36:35.276604119Z > rest-express@1.0.0 start
+2025-11-18T17:36:35.276609389Z > NODE_ENV=production node dist/index.js
+2025-11-18T17:36:35.276611439Z 
+2025-11-18T17:36:43.068469348Z 5:36:42 PM [express] serving on port 10000

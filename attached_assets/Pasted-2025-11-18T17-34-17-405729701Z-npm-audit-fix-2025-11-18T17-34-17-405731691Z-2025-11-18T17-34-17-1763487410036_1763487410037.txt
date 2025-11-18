@@ -1,0 +1,99 @@
+2025-11-18T17:34:17.405729701Z   npm audit fix
+2025-11-18T17:34:17.405731691Z 
+2025-11-18T17:34:17.405733931Z To address all issues (including breaking changes), run:
+2025-11-18T17:34:17.405736881Z   npm audit fix --force
+2025-11-18T17:34:17.405738901Z 
+2025-11-18T17:34:17.405741621Z Run `npm audit` for details.
+2025-11-18T17:34:17.549792766Z 
+2025-11-18T17:34:17.549816746Z > rest-express@1.0.0 build
+2025-11-18T17:34:17.549821857Z > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+2025-11-18T17:34:17.549827127Z 
+2025-11-18T17:34:17.758684526Z vite v5.4.20 building for production...
+2025-11-18T17:34:17.812272195Z transforming...
+2025-11-18T17:34:18.049580914Z Browserslist: browsers data (caniuse-lite) is 13 months old. Please run:
+2025-11-18T17:34:18.049601234Z   npx update-browserslist-db@latest
+2025-11-18T17:34:18.049604704Z   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2025-11-18T17:34:18.731812321Z 
+2025-11-18T17:34:18.731845682Z A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed. If you've recently added a PostCSS plugin that raised this warning, please contact the package author to fix the issue.
+2025-11-18T17:34:22.671527063Z ✓ 2190 modules transformed.
+2025-11-18T17:34:23.16597822Z rendering chunks...
+2025-11-18T17:34:23.179440821Z computing gzip size...
+2025-11-18T17:34:23.210260109Z ../dist/public/index.html                     3.76 kB │ gzip:   1.25 kB
+2025-11-18T17:34:23.210339731Z ../dist/public/assets/index-CGX8x8rI.css    100.72 kB │ gzip:  15.23 kB
+2025-11-18T17:34:23.210482895Z ../dist/public/assets/index-B_ENL5Fa.js   1,440.26 kB │ gzip: 335.03 kB
+2025-11-18T17:34:23.210537176Z 
+2025-11-18T17:34:23.210543447Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2025-11-18T17:34:23.210547876Z - Using dynamic import() to code-split the application
+2025-11-18T17:34:23.210551997Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-11-18T17:34:23.210555627Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2025-11-18T17:34:23.210761592Z ✓ built in 5.43s
+2025-11-18T17:34:23.277957445Z 
+2025-11-18T17:34:23.277996436Z   dist/index.js  43.3kb
+2025-11-18T17:34:23.277999556Z 
+2025-11-18T17:34:23.278002056Z ⚡ Done in 6ms
+2025-11-18T17:34:24.687309154Z ==> Uploading build...
+2025-11-18T17:34:34.395439984Z ==> Uploaded in 6.6s. Compression took 3.1s
+2025-11-18T17:34:34.425864652Z ==> Build successful 🎉
+2025-11-18T17:34:42.553424863Z ==> Deploying...
+2025-11-18T17:35:05.507330893Z ==> Running 'npm run start'
+2025-11-18T17:35:06.594121619Z 
+2025-11-18T17:35:06.594158Z > rest-express@1.0.0 start
+2025-11-18T17:35:06.5941627Z > NODE_ENV=production node dist/index.js
+2025-11-18T17:35:06.59416617Z 
+2025-11-18T17:35:13.898849015Z 5:35:13 PM [express] serving on port 10000
+2025-11-18T17:35:23.577802837Z ==> Your service is live 🎉
+2025-11-18T17:35:23.655831971Z ==> 
+2025-11-18T17:35:23.706402637Z ==> ///////////////////////////////////////////////////////////
+2025-11-18T17:35:25.536318465Z ==> 
+2025-11-18T17:35:25.601316179Z ==> Available at your primary URL https://portfolio-test-9k32.onrender.com
+2025-11-18T17:35:25.679671833Z ==> 
+2025-11-18T17:35:25.730867178Z ==> ///////////////////////////////////////////////////////////
+2025-11-18T17:35:57.60889029Z 5:35:57 PM [express] GET /api/user 401 in 2ms
+2025-11-18T17:36:25.090214538Z file:///opt/render/project/src/node_modules/@neondatabase/serverless/index.mjs:1549
+2025-11-18T17:36:25.090256669Z ...ee})}catch(W){let H=new pe(`Error connecting to database: ${W.message}`);throw H.
+2025-11-18T17:36:25.090263759Z                        ^
+2025-11-18T17:36:25.090268049Z 
+2025-11-18T17:36:25.090272719Z NeonDbError: Error connecting to database: fetch failed
+2025-11-18T17:36:25.090278209Z     at execute (file:///opt/render/project/src/node_modules/@neondatabase/serverless/index.mjs:1549:24)
+2025-11-18T17:36:25.090284559Z     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-18T17:36:25.09028993Z     at async NeonHttpPreparedQuery.execute (file:///opt/render/project/src/node_modules/drizzle-orm/neon-http/session.js:40:20)
+2025-11-18T17:36:25.09029461Z     at async DbStorage.createContactMessage (file:///opt/render/project/src/dist/index.js:296:20)
+2025-11-18T17:36:25.09029976Z     at async file:///opt/render/project/src/dist/index.js:1015:21 {
+2025-11-18T17:36:25.090304Z   severity: undefined,
+2025-11-18T17:36:25.09030838Z   code: undefined,
+2025-11-18T17:36:25.09031229Z   detail: undefined,
+2025-11-18T17:36:25.09031641Z   hint: undefined,
+2025-11-18T17:36:25.09032038Z   position: undefined,
+2025-11-18T17:36:25.09032482Z   internalPosition: undefined,
+2025-11-18T17:36:25.090328871Z   internalQuery: undefined,
+2025-11-18T17:36:25.090332931Z   where: undefined,
+2025-11-18T17:36:25.090337061Z   schema: undefined,
+2025-11-18T17:36:25.090341181Z   table: undefined,
+2025-11-18T17:36:25.090345541Z   column: undefined,
+2025-11-18T17:36:25.090349371Z   dataType: undefined,
+2025-11-18T17:36:25.090353441Z   constraint: undefined,
+2025-11-18T17:36:25.090357491Z   file: undefined,
+2025-11-18T17:36:25.090361711Z   line: undefined,
+2025-11-18T17:36:25.090365651Z   routine: undefined,
+2025-11-18T17:36:25.090372672Z   sourceError: TypeError: fetch failed
+2025-11-18T17:36:25.090376741Z       at node:internal/deps/undici/undici:13510:13
+2025-11-18T17:36:25.090380441Z       at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-18T17:36:25.090384242Z       at async execute (file:///opt/render/project/src/node_modules/@neondatabase/serverless/index.mjs:1548:15)
+2025-11-18T17:36:25.090389212Z       at async NeonHttpPreparedQuery.execute (file:///opt/render/project/src/node_modules/drizzle-orm/neon-http/session.js:40:20)
+2025-11-18T17:36:25.090392732Z       at async DbStorage.createContactMessage (file:///opt/render/project/src/dist/index.js:296:20)
+2025-11-18T17:36:25.090396302Z       at async file:///opt/render/project/src/dist/index.js:1015:21 {
+2025-11-18T17:36:25.090400152Z     [cause]: ConnectTimeoutError: Connect Timeout Error (attempted address: api.oregon-postgres.render.com:443, timeout: 10000ms)
+2025-11-18T17:36:25.090404222Z         at onConnectTimeout (node:internal/deps/undici/undici:2602:28)
+2025-11-18T17:36:25.090408012Z         at Immediate._onImmediate (node:internal/deps/undici/undici:2583:11)
+2025-11-18T17:36:25.090411732Z         at process.processImmediate (node:internal/timers:485:21) {
+2025-11-18T17:36:25.090415212Z       code: 'UND_ERR_CONNECT_TIMEOUT'
+2025-11-18T17:36:25.090418853Z     }
+2025-11-18T17:36:25.090434143Z   }
+2025-11-18T17:36:25.090436923Z }
+2025-11-18T17:36:25.090439143Z 
+2025-11-18T17:36:25.090441963Z Node.js v22.16.0
+2025-11-18T17:36:34.176001692Z ==> Running 'npm run start'
+2025-11-18T17:36:35.276571568Z 
+2025-11-18T17:36:35.276604119Z > rest-express@1.0.0 start
+2025-11-18T17:36:35.276609389Z > NODE_ENV=production node dist/index.js
+2025-11-18T17:36:35.276611439Z 

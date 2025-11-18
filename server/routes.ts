@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth, ensureAuthenticated } from "./auth";
+import { sendContactEmail } from "./email";
 import {
   insertProjectSchema,
   insertCertificateSchema,
@@ -15,6 +16,11 @@ import {
 
 export async function registerRoutes(app: Express): Promise<Server> {
   setupAuth(app);
+  
+  app.get("/health", (_req, res) => {
+    res.status(200).json({ status: "ok", timestamp: new Date().toISOString() });
+  });
+
   app.get("/api/projects", async (_req, res) => {
     const projects = await storage.getProjects();
     res.json(projects);
@@ -230,8 +236,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     if (!result.success) {
       return res.status(400).json({ error: result.error.message });
     }
-    const message = await storage.createContactMessage(result.data);
-    res.json(message);
+    
+    try {
+      const message = await storage.createContactMessage(result.data);
+      await sendContactEmail(result.data);
+      res.json(message);
+    } catch (error) {
+      console.error('Error processing contact form:', error);
+      return res.status(500).json({ error: "Failed to process contact message" });
+    }
   });
 
   app.get("/api/contact-messages", ensureAuthenticated, async (_req, res) => {
