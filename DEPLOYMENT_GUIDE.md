@@ -65,6 +65,8 @@ git push origin main
    - **Start Command**: `npm start`
    - **Instance Type**: **Free** ✅
 
+**Note**: Maine `vite`, `esbuild`, `typescript` etc ko **dependencies** mein rakh diya hai (devDependencies mein nahi) kyunki Render ko build ke liye yeh packages chahiye hote hain. Yeh normal hai! ✅
+
 ### 2.4 Environment Variables Set Karein
 
 **Environment** section mein yeh variables add karein:
