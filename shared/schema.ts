@@ -146,7 +146,9 @@ export const blogPosts = pgTable("blog_posts", {
   updatedAt: timestamp("updated_at").notNull().default(sql`now()`),
 });
 
-export const insertBlogPostSchema = createInsertSchema(blogPosts).omit({
+export const insertBlogPostSchema = createInsertSchema(blogPosts, {
+  publishedAt: z.coerce.date().nullable(), // यह लाइन जोड़ें: यह स्ट्रिंग डेट को डेट ऑब्जेक्ट में बदल देगी
+}).omit({
   id: true,
   createdAt: true,
   updatedAt: true,
