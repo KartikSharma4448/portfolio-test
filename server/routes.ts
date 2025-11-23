@@ -231,15 +231,26 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.json({ success: true });
   });
 
-  app.post("/api/contact", async (req, res) => {
+ app.post("/api/contact", async (req, res) => {
     const result = insertContactMessageSchema.safeParse(req.body);
     if (!result.success) {
       return res.status(400).json({ error: result.error.message });
     }
     
     try {
+      // 1. Save to database first (Critical)
       const message = await storage.createContactMessage(result.data);
-      await sendContactEmail(result.data);
+      
+      // 2. Try to send email, but don't fail the request if email fails
+      // We don't await this if we want it to be non-blocking, 
+      // but awaiting ensures we see the log before responding.
+      try {
+        await sendContactEmail(result.data);
+      } catch (emailError) {
+        console.error("Email failed to send, but message saved:", emailError);
+        // We continue intentionally to send 200 OK
+      }
+
       res.json(message);
     } catch (error) {
       console.error('Error processing contact form:', error);
