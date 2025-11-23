@@ -9,10 +9,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export async function sendContactEmail(message: InsertContactMessage): Promise<void> {
+export async function sendContactEmail(message: InsertContactMessage): Promise<boolean> {
+  // 1. Check if credentials exist
   if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-    console.warn('Email credentials not configured, skipping email send');
-    return;
+    console.warn('Missing email credentials (GMAIL_USER or GMAIL_APP_PASSWORD). Email skipped.');
+    return false; // Return false but don't crash
   }
 
   const mailOptions = {
@@ -32,10 +33,14 @@ export async function sendContactEmail(message: InsertContactMessage): Promise<v
   };
 
   try {
+    // 2. Add a verification check to fail fast if connection is bad
+    await transporter.verify(); 
     await transporter.sendMail(mailOptions);
     console.log('Contact email sent successfully');
+    return true;
   } catch (error) {
     console.error('Failed to send contact email:', error);
-    throw error;
+    // Don't throw error to the user, just log it so the form submission still "succeeds" in saving to DB
+    return false; 
   }
 }
