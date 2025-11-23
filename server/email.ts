@@ -1,19 +1,23 @@
 import nodemailer from 'nodemailer';
 import type { InsertContactMessage } from '@shared/schema';
 
+// Use strict configuration for Render/Cloud hosting
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true, // Use SSL
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_APP_PASSWORD,
   },
+  // CRITICAL: Force IPv4. Render often fails to route IPv6 to Gmail.
+  family: 4 
 });
 
 export async function sendContactEmail(message: InsertContactMessage): Promise<boolean> {
-  // 1. Check if credentials exist
   if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-    console.warn('Missing email credentials (GMAIL_USER or GMAIL_APP_PASSWORD). Email skipped.');
-    return false; // Return false but don't crash
+    console.warn('Email credentials not configured, skipping email send');
+    return false;
   }
 
   const mailOptions = {
@@ -33,14 +37,14 @@ export async function sendContactEmail(message: InsertContactMessage): Promise<b
   };
 
   try {
-    // 2. Add a verification check to fail fast if connection is bad
-    await transporter.verify(); 
+    // Verify connection before sending
+    await transporter.verify();
     await transporter.sendMail(mailOptions);
     console.log('Contact email sent successfully');
     return true;
   } catch (error) {
     console.error('Failed to send contact email:', error);
-    // Don't throw error to the user, just log it so the form submission still "succeeds" in saving to DB
+    // Return false instead of throwing error so the user still gets a success message
     return false; 
   }
 }
